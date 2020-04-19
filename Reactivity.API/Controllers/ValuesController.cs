@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Reactivity.Application.Interfaces;
 using Reactivity.Application.ViewModels;
+using Reactivity.Domain.Models;
 
 namespace Reactivity.API.Controllers
 {
@@ -26,6 +27,20 @@ namespace Reactivity.API.Controllers
             try
             {
                 return _valueService.GetValues();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpGet("{id}")]
+        public Value Get(int id)
+        {
+            try
+            {
+                return _valueService.GetValueById(id);
             }
             catch (Exception)
             {

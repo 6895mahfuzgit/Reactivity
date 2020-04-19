@@ -6,5 +6,6 @@ namespace Reactivity.Domain.Interfaces
     public interface IValueRepository
     {
         IEnumerable<Value> GetValues();
+        Value GetValueById(int id);
     }
 }

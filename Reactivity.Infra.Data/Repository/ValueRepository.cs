@@ -3,7 +3,7 @@ using Reactivity.Domain.Models;
 using Reactivity.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace Reactivity.Infra.Data.Repository
 {
@@ -21,6 +21,20 @@ namespace Reactivity.Infra.Data.Repository
             try
             {
                 return _context.Values;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public Value GetValueById(int id)
+        {
+            try
+            {
+                return _context.Values.FirstOrDefault(x => x.Id == id);
             }
             catch (Exception)
             {

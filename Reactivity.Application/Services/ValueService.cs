@@ -1,6 +1,7 @@
 ﻿using Reactivity.Application.Interfaces;
 using Reactivity.Application.ViewModels;
 using Reactivity.Domain.Interfaces;
+using Reactivity.Domain.Models;
 using System;
 
 namespace Reactivity.Application.Services
@@ -13,6 +14,9 @@ namespace Reactivity.Application.Services
         {
             _valueRepository = valueRepository;
         }
+
+        
+
         public ValueViewModel GetValues()
         {
             try
@@ -30,5 +34,20 @@ namespace Reactivity.Application.Services
                 throw;
             }
         }
+
+        public Value GetValueById(int id)
+        {
+            try
+            {
+                return _valueRepository.GetValueById(id);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
