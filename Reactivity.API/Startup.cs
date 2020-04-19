@@ -32,13 +32,24 @@ namespace Reactivity.API
             //services.AddDbContext<ReactivlyDBContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("ReactivlyConnection"));
 
+
+            //Cors
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                });
+            });
+
+
             RegisterServices(services, Configuration);
 
         }
 
         private void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
-            DependencyContainer.RegisterServices(services,configuration);
+            DependencyContainer.RegisterServices(services, configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +66,7 @@ namespace Reactivity.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ractivly V1");
             });
-
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 
