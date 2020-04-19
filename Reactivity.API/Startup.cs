@@ -26,7 +26,7 @@ namespace Reactivity.API
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Banking Microservices", Version = "v1" });
             });
-
+                
             RegisterServices(services);
 
         }
