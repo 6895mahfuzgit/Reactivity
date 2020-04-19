@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Reactivity.Application\Reactivity.Application.csproj" />
     <ProjectReference Include="..\Reactivity.Infra.Data\Reactivity.Infra.Data.csproj" />
   </ItemGroup>
 

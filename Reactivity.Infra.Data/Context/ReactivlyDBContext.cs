@@ -12,6 +12,7 @@ namespace Reactivity.Infra.Data.Context
 
         public DbSet<Value> Values { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Value>().HasData(

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Reactivity.Infra.Data.Context;
 using Reactivity.Infra.IoC;
 
 namespace Reactivity.API
@@ -26,14 +28,17 @@ namespace Reactivity.API
             {
                 c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Banking Microservices", Version = "v1" });
             });
-                
-            RegisterServices(services);
+
+            //services.AddDbContext<ReactivlyDBContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("ReactivlyConnection"));
+
+            RegisterServices(services, Configuration);
 
         }
 
-        private void RegisterServices(IServiceCollection services)
+        private void RegisterServices(IServiceCollection services, IConfiguration configuration)
         {
-            DependencyContainer.RegisterServices(services);
+            DependencyContainer.RegisterServices(services,configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
