@@ -26,7 +26,7 @@ namespace Reactivity.API
             //sawger service
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Banking Microservices", Version = "v1" });
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Reactivly", Version = "v1" });
             });
 
             //services.AddDbContext<ReactivlyDBContext>(options =>

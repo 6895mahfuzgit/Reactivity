@@ -11,6 +11,7 @@ namespace Reactivity.Infra.Data.Context
         }
 
         public DbSet<Value> Values { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,7 +33,7 @@ namespace Reactivity.Infra.Data.Context
         public ReactivlyDBContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ReactivlyDBContext>();
-            optionsBuilder.UseSqlServer("Server=LAPTOP-TT5P3OP6\\SQLEXPRESS;Database=ReactivlyBD;Trusted_Connection=True;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-TT5P3OP6\\SQLEXPRESS;Database=ReactivlyDB;Trusted_Connection=True;MultipleActiveResultSets=True;");
             return new ReactivlyDBContext(optionsBuilder.Options);
         }
     }

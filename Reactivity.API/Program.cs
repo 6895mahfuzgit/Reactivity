@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Reactivity.Infra.Data.Context;
+using Reactivity.Infra.Data.SeedData;
 
 namespace Reactivity.API
 {
@@ -20,6 +21,7 @@ namespace Reactivity.API
                 {
                     var context = services.GetRequiredService<ReactivlyDBContext>();
                     context.Database.Migrate();
+                    Seed.SeedData(context);
                 }
                 catch (System.Exception)
                 {
