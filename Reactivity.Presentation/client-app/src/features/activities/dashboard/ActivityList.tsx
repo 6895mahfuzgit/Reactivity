@@ -20,7 +20,7 @@ export const ActivityList: React.FC<IProps> = ({
   return (
     <Segment clearing>
       <Item.Group divided>
-        {activities.map((activity) => (
+        {activities && activities.map((activity) => (
           <Item key={activity.id}>
             <Item.Content>
               <Item.Header as="a">{activity.title}</Item.Header>

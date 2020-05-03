@@ -7,6 +7,10 @@ import { ActivityDashboard } from "../../features/activities/dashboard/ActivityD
 import agent from "../api/agent";
 import { LoadingComponent } from "../layout/LoadingComponent";
 import ActivityStore from '../stores/activityStore';
+import { Route } from "react-router-dom";
+import {HomePage} from '../../features/home/HomePage';
+import { ActivityForm } from "../../features/activities/form/ActivityForm";
+
 const App = () => {
 
   const activityStore= useContext(ActivityStore);
@@ -78,8 +82,13 @@ const App = () => {
     <Fragment>
       <NavBar openCreateForm={handleOpenCreateForm} />
       <Container style={{ marginTop: "7em" }}>
-        <h1>{activityStore.title}</h1>
-        <ActivityDashboard
+        
+      <Route eaxct path='' component={HomePage} /> 
+        <Route path='/activities' component={ActivityDashboard} />
+        <Route path='/createActivity' component={ActivityForm} />
+       
+
+        {/* <ActivityDashboard
           activities={activities}
           selectActivity={handleSelectedActivity}
           selectedActivity={selectedActivity}
@@ -91,7 +100,7 @@ const App = () => {
           deleteActivity={handleDeleteActivity}
           submitting={submitting}
           target={target}
-        ></ActivityDashboard>
+        ></ActivityDashboard> */}
       </Container>
     </Fragment>
   );
