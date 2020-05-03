@@ -1,4 +1,6 @@
 import React from "react";
+import{observer} from 'mobx-react-lite';
+
 import { Card, Image, Icon, Button } from "semantic-ui-react";
 import { IActivity } from "../../../app/models/activity";
 
@@ -42,3 +44,5 @@ export const ActivityDetails: React.FC<IProps> = ({
     </Card>
   );
 };
+
+export default observer(ActivityDetails);
